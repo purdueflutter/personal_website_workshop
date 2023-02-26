@@ -12,6 +12,8 @@ import '../utils/screen/screen_utils.dart';
 import '../widgets/responsive_widget.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -53,11 +55,11 @@ class HomePage extends StatelessWidget {
         ),
         children: <TextSpan>[
           TextSpan(
-            text: Strings.FirstName,
+            text: Strings.firstName,
             style: TextStyles.logo,
           ),
           TextSpan(
-            text: Strings.LastName,
+            text: Strings.lastName,
             style: TextStyles.logo.copyWith(
               color: Color(0xFF50AFC0),
             ),
@@ -71,8 +73,8 @@ class HomePage extends StatelessWidget {
     return <Widget>[
       MaterialButton(
         child: Text(
-          Strings.menu_home,
-          style: TextStyles.menu_item.copyWith(
+          Strings.menuHome,
+          style: TextStyles.menuItem.copyWith(
             color: Color(0xFF50AFC0),
           ),
         ),
@@ -80,15 +82,15 @@ class HomePage extends StatelessWidget {
       ),
       MaterialButton(
         child: Text(
-          Strings.menu_about,
-          style: TextStyles.menu_item,
+          Strings.menuAbout,
+          style: TextStyles.menuItem,
         ),
         onPressed: () {},
       ),
       MaterialButton(
         child: Text(
-          Strings.menu_contact,
-          style: TextStyles.menu_item,
+          Strings.menuContact,
+          style: TextStyles.menuItem,
         ),
         onPressed: () {},
       ),
@@ -229,7 +231,7 @@ class HomePage extends StatelessWidget {
           TextSpan(
             text: Strings.about,
             style: TextStyles.heading.copyWith(
-              fontFamily: Fonts.nexa_light,
+              fontFamily: Fonts.nexaLight,
               fontSize: ResponsiveWidget.isSmallScreen(context) ? 36 : 45.0,
             ),
           ),
@@ -250,7 +252,7 @@ class HomePage extends StatelessWidget {
       ResponsiveWidget.isSmallScreen(context)
           ? Strings.headline
           : Strings.headline.replaceFirst(RegExp(r' f'), '\nf'),
-      style: TextStyles.sub_heading,
+      style: TextStyles.subheading,
     );
   }
 
@@ -303,8 +305,8 @@ class HomePage extends StatelessWidget {
 
   Widget _buildSkillsContainerHeading() {
     return Text(
-      Strings.skills_i_have,
-      style: TextStyles.sub_heading,
+      Strings.skillsTitle,
+      style: TextStyles.subheading,
     );
   }
 
@@ -335,7 +337,7 @@ class HomePage extends StatelessWidget {
   Widget _buildExperienceContainerHeading() {
     return Text(
       Strings.experience,
-      style: TextStyles.sub_heading,
+      style: TextStyles.subheading,
     );
   }
 
@@ -348,29 +350,29 @@ class HomePage extends StatelessWidget {
 
   Widget _buildExperienceTimeline() {
     final List<Widget> widgets = Strings.experienceList
-        .map((Experience) => _buildExperienceTile(Experience))
+        .map((experience) => _buildExperienceTile(experience))
         .toList();
     return Column(children: widgets);
   }
 
-  Widget _buildExperienceTile(Experience Experience) {
+  Widget _buildExperienceTile(Experience experience) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Text(
-            '${Experience.title}',
+            '${experience.title}',
             style: TextStyles.company,
           ),
           Text(
-            '${Experience.organization}',
+            '${experience.organization}',
             style: TextStyles.body.copyWith(
               color: Color(0xFF45405B),
             ),
           ),
           Text(
-            '${Experience.from}-${Experience.to}',
+            '${experience.from}-${experience.to}',
             style: TextStyles.body,
           ),
         ],
@@ -390,12 +392,12 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Align(
-                child: _buildCopyRightText(context),
                 alignment: Alignment.centerLeft,
+                child: _buildCopyRightText(context),
               ),
               Align(
-                child: _buildSocialIcons(),
                 alignment: Alignment.centerRight,
+                child: _buildSocialIcons(),
               ),
             ],
           ),
@@ -406,7 +408,7 @@ class HomePage extends StatelessWidget {
 
   Widget _buildCopyRightText(BuildContext context) {
     return Text(
-      Strings.rights_reserved,
+      Strings.rightsReserved,
       style: TextStyles.body1.copyWith(
         fontSize: ResponsiveWidget.isSmallScreen(context) ? 8 : 10.0,
       ),

@@ -13,7 +13,7 @@ class TextStyles {
         letterSpacing: 1.0,
       );
 
-  static TextStyle get menu_item => const TextStyle(
+  static TextStyle get menuItem => const TextStyle(
         fontFamily: Fonts.product,
         fontSize: 12.0, //12,.0
         letterSpacing: 1.0,
@@ -21,14 +21,14 @@ class TextStyles {
       );
 
   static TextStyle get heading => const TextStyle(
-        fontFamily: Fonts.nexa_bold,
+        fontFamily: Fonts.nexaBold,
         color: Color(0xFF45405B),
         fontSize: 45.0, //45.0
         fontWeight: FontWeight.bold,
         letterSpacing: 1.0,
       );
 
-  static TextStyle get sub_heading => const TextStyle(
+  static TextStyle get subheading => const TextStyle(
         color: Color(0xFF45405B),
         fontFamily: Fonts.product,
         fontSize: 17.0, //17.0
