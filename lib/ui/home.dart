@@ -7,7 +7,7 @@ import '../constants/fonts.dart';
 import '../constants/links.dart';
 import '../constants/strings.dart';
 import '../constants/text_styles.dart';
-import '../models/education.dart';
+import '../models/experience.dart';
 import '../utils/screen/screen_utils.dart';
 import '../widgets/responsive_widget.dart';
 
@@ -206,12 +206,12 @@ class HomePage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  _buildEducation(),
+                  _buildExperience(),
                   SizedBox(height: 24.0),
                   _buildSkills(context),
                 ],
               )
-            : _buildSkillsAndEducation(context)
+            : _buildSkillsAndExperience(context)
       ],
     );
   }
@@ -264,13 +264,13 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildSkillsAndEducation(BuildContext context) {
+  Widget _buildSkillsAndExperience(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Expanded(
           flex: 1,
-          child: _buildEducation(),
+          child: _buildExperience(),
         ),
         SizedBox(width: 40.0),
         Expanded(
@@ -319,58 +319,58 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  // Education Methods:---------------------------------------------------------
-  Widget _buildEducation() {
+  // Experience Methods:---------------------------------------------------------
+  Widget _buildExperience() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        _buildEducationContainerHeading(),
-        _buildEducationSummary(),
+        _buildExperienceContainerHeading(),
+        _buildExperienceSummary(),
         SizedBox(height: 8.0),
-        _buildEducationTimeline(),
+        _buildExperienceTimeline(),
       ],
     );
   }
 
-  Widget _buildEducationContainerHeading() {
+  Widget _buildExperienceContainerHeading() {
     return Text(
       Strings.experience,
       style: TextStyles.sub_heading,
     );
   }
 
-  Widget _buildEducationSummary() {
+  Widget _buildExperienceSummary() {
     return Text(
-      Strings.educationSummary,
+      Strings.experienceSummary,
       style: TextStyles.body,
     );
   }
 
-  Widget _buildEducationTimeline() {
-    final List<Widget> widgets = Strings.educationList
-        .map((education) => _buildEducationTile(education))
+  Widget _buildExperienceTimeline() {
+    final List<Widget> widgets = Strings.experienceList
+        .map((Experience) => _buildExperienceTile(Experience))
         .toList();
     return Column(children: widgets);
   }
 
-  Widget _buildEducationTile(Education education) {
+  Widget _buildExperienceTile(Experience Experience) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Text(
-            '${education.post}',
+            '${Experience.title}',
             style: TextStyles.company,
           ),
           Text(
-            '${education.organization}',
+            '${Experience.organization}',
             style: TextStyles.body.copyWith(
               color: Color(0xFF45405B),
             ),
           ),
           Text(
-            '${education.from}-${education.to}',
+            '${Experience.from}-${Experience.to}',
             style: TextStyles.body,
           ),
         ],

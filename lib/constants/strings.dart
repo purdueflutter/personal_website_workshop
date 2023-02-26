@@ -1,4 +1,4 @@
-import '../models/education.dart';
+import '../models/experience.dart';
 
 class Strings {
   Strings._();
@@ -12,6 +12,7 @@ class Strings {
   static const String summary =
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.';
   static const String experience = 'Experience';
+  static const String education = 'Education';
   static const String skills_i_have = 'What Skill I Have';
   static const String rights_reserved = '';
 
@@ -36,23 +37,23 @@ class Strings {
     'Code Magic',
   ];
 
-  // Education
-  static const String educationSummary =
+  // Experience
+  static const String experienceSummary =
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.';
-  static List<Education> educationList = [
-    Education(
+  static List<Experience> experienceList = [
+    Experience(
       'Apr 2018',
       'Present',
       'Embrace-it Pakistan',
       'Sr. Software Engineer',
     ),
-    Education(
+    Experience(
       'Apr 2016',
       'Apr 2018',
       'TEO International',
       'Sr. Software Engineer',
     ),
-    Education(
+    Experience(
       'July 2014',
       'March 2016',
       'Citrusbits',
