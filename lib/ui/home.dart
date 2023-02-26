@@ -1,15 +1,17 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:personal_website_workshop/ui/education_widget.dart';
+import 'package:personal_website_workshop/ui/skills_widget.dart';
 
 import '../constants/images.dart';
 import '../constants/fonts.dart';
 import '../constants/links.dart';
 import '../constants/strings.dart';
 import '../constants/text_styles.dart';
-import '../models/experience.dart';
 import '../utils/screen/screen_utils.dart';
 import '../widgets/responsive_widget.dart';
+import 'experience_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -208,12 +210,34 @@ class HomePage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  _buildExperience(),
+                  ExperienceWidget(),
                   SizedBox(height: 24.0),
-                  _buildSkills(context),
+                  EducationWidget(),
+                  SizedBox(height: 24.0),
+                  SkillsWidget(),
                 ],
               )
-            : _buildSkillsAndExperience(context)
+            : Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: ExperienceWidget(),
+                  ),
+                  SizedBox(width: 40.0),
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        EducationWidget(),
+                        SkillsWidget(),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
       ],
     );
   }
@@ -262,120 +286,6 @@ class HomePage extends StatelessWidget {
       child: Text(
         Strings.summary,
         style: TextStyles.body,
-      ),
-    );
-  }
-
-  Widget _buildSkillsAndExperience(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Expanded(
-          flex: 1,
-          child: _buildExperience(),
-        ),
-        SizedBox(width: 40.0),
-        Expanded(
-          flex: 1,
-          child: _buildSkills(context),
-        ),
-      ],
-    );
-  }
-
-  // Skills Methods:------------------------------------------------------------
-  Widget _buildSkills(BuildContext context) {
-    final List<Widget> widgets = Strings.skills
-        .map((skill) => Padding(
-              padding: EdgeInsets.only(right: 8.0),
-              child: _buildSkillChip(context, skill),
-            ))
-        .toList();
-
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        _buildSkillsContainerHeading(),
-        Wrap(children: widgets),
-//        _buildNavigationArrows(),
-      ],
-    );
-  }
-
-  Widget _buildSkillsContainerHeading() {
-    return Text(
-      Strings.skillsTitle,
-      style: TextStyles.subheading,
-    );
-  }
-
-  Widget _buildSkillChip(BuildContext context, String label) {
-    return Chip(
-      label: Text(
-        label,
-        style: TextStyles.chip.copyWith(
-          fontSize: ResponsiveWidget.isSmallScreen(context) ? 10.0 : 11.0,
-        ),
-      ),
-    );
-  }
-
-  // Experience Methods:---------------------------------------------------------
-  Widget _buildExperience() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        _buildExperienceContainerHeading(),
-        _buildExperienceSummary(),
-        SizedBox(height: 8.0),
-        _buildExperienceTimeline(),
-      ],
-    );
-  }
-
-  Widget _buildExperienceContainerHeading() {
-    return Text(
-      Strings.experience,
-      style: TextStyles.subheading,
-    );
-  }
-
-  Widget _buildExperienceSummary() {
-    return Text(
-      Strings.experienceSummary,
-      style: TextStyles.body,
-    );
-  }
-
-  Widget _buildExperienceTimeline() {
-    final List<Widget> widgets = Strings.experienceList
-        .map((experience) => _buildExperienceTile(experience))
-        .toList();
-    return Column(children: widgets);
-  }
-
-  Widget _buildExperienceTile(Experience experience) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Text(
-            '${experience.title}',
-            style: TextStyles.company,
-          ),
-          Text(
-            '${experience.organization}',
-            style: TextStyles.body.copyWith(
-              color: Color(0xFF45405B),
-            ),
-          ),
-          Text(
-            '${experience.from}-${experience.to}',
-            style: TextStyles.body,
-          ),
-        ],
       ),
     );
   }

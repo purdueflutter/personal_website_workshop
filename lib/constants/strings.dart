@@ -1,3 +1,4 @@
+import '../models/education.dart';
 import '../models/experience.dart';
 
 class Strings {
@@ -12,7 +13,7 @@ class Strings {
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.';
   static const String experience = 'Experience';
   static const String education = 'Education';
-  static const String skillsTitle = 'What Skill I Have';
+  static const String skillsTitle = 'Skills';
   static const String rightsReserved = '';
 
   // Menu Items
@@ -57,6 +58,16 @@ class Strings {
       'March 2016',
       'Citrusbits',
       'Software Engineer',
+    ),
+  ];
+
+  // Education
+  static List<Education> educationList = [
+    Education(
+      'Fall 2021',
+      'Present',
+      'Purdue University',
+      'B.S. in Computer Science',
     ),
   ];
 }
