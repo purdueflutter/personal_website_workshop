@@ -1,6 +1,4 @@
-# personal_website_workshop
-
-A template for creating a personal website! Checkout the live demo [here](https://purdueflutter.github.io/personal_website_workshop)!
+This is a template for creating a personal website! Checkout the live demo [here](https://purdueflutter.github.io/personal_website_workshop)!
 
 # References
 
