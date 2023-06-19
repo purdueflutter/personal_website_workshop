@@ -1,4 +1,4 @@
-This is a template for creating a personal website! Checkout the live demo [here](https://purdueflutter.github.io/personal_website_workshop)!
+This is a template for creating a personal website! Checkout the live demo [here](https://purdueflutter.github.io/)!
 
 # Setup
 1. Fork repo and rename to {username}.github.io
